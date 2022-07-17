@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  
 }
 ol, ul {
 	list-style: none;
@@ -58,7 +59,11 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color:black;
   line-height: 1.2;
-  background:#0F0F0F;
+  width:100%;
+  height:200vh;
+  display:grid;
+  grid-template-rows:repeat(2,1fr);
+
 }
 a {
   text-decoration:none;

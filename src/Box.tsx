@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 interface IBoxd {
   bgColor: string;
@@ -63,10 +64,12 @@ const SmallBox = styled(motion.div)`
   background-color: white;
   border-radius: 20px;
 `;
-const SmallBox2 = styled(motion.div)`
-  width: 100%;
-  height: 50px;
+const SmallBox3 = styled(motion.div)`
+  width: 100px;
+  height: 100px;
   background-color: white;
+  position: absolute;
+  top: 80px;
 `;
 const Boxd = styled(motion.div)<IBoxd>`
   width: 100px;
@@ -97,6 +100,7 @@ const AniBox = styled(motion.div)<IBoxd>`
   align-items: center;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
   background-color: ${(props) => props.bgColor};
+  overflow: hidden;
 `;
 const Svg = styled.svg`
   width: 50px;
@@ -113,10 +117,13 @@ const svgVar = {
     pathLength: 1,
   },
 };
+
 function Box({ bgColor, ani }: IBoxd) {
   const biggerBoxRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useViewportScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.5, 1]);
+  const yTransform = useTransform(scrollYProgress, [0, 0.5, 1], [120, 80, 0.1]);
+
   return (
     <>
       {ani == 0 ? (
@@ -150,22 +157,20 @@ function Box({ bgColor, ani }: IBoxd) {
         />
       ) : null}
       {ani == 3 ? (
-        <Boxd bgColor={bgColor} ref={biggerBoxRef}>
+        <AniBox bgColor={bgColor} ref={biggerBoxRef}>
           <SmallBox
             drag
             dragElastic={0.5}
             dragConstraints={biggerBoxRef}
             variants={boxVar4}
             whileHover="hover"
-            whileTap="click"
           />
-        </Boxd>
+        </AniBox>
       ) : null}
       {ani == 4 ? (
-        <Boxd bgColor={bgColor} style={{ scale }}>
-          <SmallBox2 style={{ height: 35 * Number(scale) * 2 }} />
-          <SmallBox2 style={{ height: 35 * Number(scale) * 2 }} />
-        </Boxd>
+        <AniBox bgColor={bgColor} style={{ scale }}>
+          <SmallBox3 style={{ top: yTransform }} />
+        </AniBox>
       ) : null}
       {ani == 5 ? (
         <AniBox bgColor={bgColor}>

@@ -57,11 +57,12 @@ const Svg = styled(motion.svg)`
   color: white;
 `;
 function Footer({ text, ani }: IFooter) {
+  const onClick = () => {};
   return (
     <FooterContainer>
       <Text>{text}</Text>
       <ICons>
-        <Icon>
+        <Icon onClick={onClick}>
           <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path
               fill="currentColor"

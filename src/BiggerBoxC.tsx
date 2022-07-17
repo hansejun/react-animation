@@ -29,27 +29,27 @@ function BiggerBoxC() {
   return (
     <>
       <BiggerBox color1="#FC0092" color2="#DE00EB">
-        <Box ani={0} bgColor={"rgba(255,255,255,1)"} />
+        <Box key={0} ani={0} bgColor={"rgba(255,255,255,1)"} />
         <Footer ani={0} text="Animation" />
       </BiggerBox>
       <BiggerBox color1="#D702F0" color2="#9C12FE">
-        <Box ani={1} bgColor={"rgba(255,255,255,0.4)"} />
+        <Box key={1} ani={1} bgColor={"rgba(255,255,255,0.4)"} />
         <Footer ani={1} text="Variants" />
       </BiggerBox>
       <BiggerBox color1="#9510FF" color2="#7901FF">
-        <Box ani={2} bgColor={"rgba(255,255,255,1)"} />
+        <Box key={2} ani={2} bgColor={"rgba(255,255,255,1)"} />
         <Footer ani={2} text="Gestures" />
       </BiggerBox>
       <BiggerBox color1="#7100FF" color2="#4500FE">
-        <Box ani={3} bgColor={"rgba(255,255,255,0.4)"} />
+        <Box key={3} ani={3} bgColor={"rgba(255,255,255,0.4)"} />
         <Footer ani={3} text="Drag" />
       </BiggerBox>
       <BiggerBox color1="#3F0BFF" color2="#0851FE">
-        <Box ani={4} bgColor={"rgba(255,255,255,0.4)"} />
+        <Box key={4} ani={4} bgColor={"rgba(255,255,255,0.4)"} />
         <Footer ani={4} text="Scroll" />
       </BiggerBox>
       <BiggerBox color1="#015CFF" color2="#0096FF">
-        <Box ani={5} bgColor={"rgba(255,255,255,0.4)"} />
+        <Box key={5} ani={5} bgColor={"rgba(255,255,255,0.4)"} />
         <Footer ani={5} text="Path" />
       </BiggerBox>
       ;
