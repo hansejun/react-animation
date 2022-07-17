@@ -1,26 +1,23 @@
 import styled from "styled-components";
 
+import BiggerBoxC from "./BiggerBoxC";
+
 const Wrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 1000px;
+  height: 130vh;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px;
+  gap: 50px;
 `;
-const Box = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.06);
-`;
+
 function App() {
   return (
-    <>
-      <Wrapper>
-        <Box />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <BiggerBoxC />
+    </Wrapper>
   );
 }
 
